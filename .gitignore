@@ -1,0 +1,7 @@
+.remote-sync.json
+*.pyc
+*.pt
+*.so
+build
+cython/*.cpp
+.vscode
