@@ -10,7 +10,7 @@
 
 ## RUN the Test:
 
-GPU environment: Nidia Tesla P4/16GB, Driver Version: 418.181.07, CUDA Version: 10.1
+GPU environment: Nvidia Tesla T4/16GB, Driver Version: 418.181.07, CUDA Version: 10.1
 
 ```
   nvprof ./cublastest
