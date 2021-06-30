@@ -18,10 +18,6 @@ GPU environment: Nvidia Tesla T4/16GB, Driver Version: 418.181.07, CUDA Version:
 
 ## Test Results:
 ```
-===== start to test HGEMM, M=768, N=786432, K=128, test iterations:16 =====
-FP16, total Time (timeofday) in 16 interations is 1.91417s.
-===== start to test GEMMEx(INT8), M=768, N=786432, K=128, test iterations:16 =====
-INT8, total Time (timeofday) in 16 interations is 3.76827s.
 root@c0dca262005a:~/cuBLASTest/build# nvprof ./cublastest
 ==7890== NVPROF is profiling process 7890, command: ./cublastest
 ===== start to test HGEMM, M=768, N=786432, K=128, test iterations:16 =====
