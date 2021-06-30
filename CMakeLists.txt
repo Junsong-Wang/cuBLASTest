@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.4.0)
-project(match_test LANGUAGES CXX)
+project(cublas_test LANGUAGES CXX)
 
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
@@ -13,6 +13,6 @@ SET(CUDA_NVCC_FLAGS ${CUDA_NVCC_FLAGS};-gencode arch=compute_60,code=sm_60 -genc
 include_directories(src)
 FILE(GLOB_RECURSE sourcefiles "src/*.cpp" "src/*.cu")
 
-CUDA_ADD_EXECUTABLE(match ${sourcefiles})
+CUDA_ADD_EXECUTABLE(cublastest ${sourcefiles})
 MESSAGE(${OpenCV_LIBS})
-target_link_libraries(match ${OpenCV_LIBS} cuda cublas cudart)
+target_link_libraries(cublastest ${OpenCV_LIBS} cuda cublas cudart)
