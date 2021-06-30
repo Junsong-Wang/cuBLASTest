@@ -9,6 +9,9 @@
 ```
 
 ## RUN the Test:
+
+GPU environment: Driver Version: 418.181.07   CUDA Version: 10.1
+
 ```
   nvprof ./cublastest
 ```
@@ -58,6 +61,6 @@ INT8, total Time (timeofday) in 16 interations is 3.74584s.
 ```
 ## Questions:
 
-1. In our typical settings, M=768, N=786432, K=128, GEMM with INT8 (volta_sgemm_int8_128x128_nt) is much slower than FP16 (turing_h1688gemm_128x128_ldg8_nt), 21.443ms vs. 8.6957ms
+1. In our typical settings, M=768, N=786432, K=128, GEMM with INT8 (volta_sgemm_int8_128x128_nt) is much slower than FP16 (turing_h1688gemm_128x128_ldg8_nt), 21.443ms vs. 8.6957ms. I changed to CUDA version from 10.1 to 11.2, the performane results are same.
 
 2. We would like to use UINT8 instead of INT8, How to configure the cublasGemmEx? It is not clear in the cuBLAS manual. I try to use CUDA_R_8U instead of CUDA_R_8I, but the results seems wrong.
