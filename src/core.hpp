@@ -19,5 +19,6 @@
 void int8_test(cublasHandle_t& handle, float* A, float* B, int M, int N, int K, unsigned int iterations);
 void fp16_test(cublasHandle_t& handle, float* A, float* B, int M, int N, int K, unsigned int iterations);
 
+#define USING_CUDA_R_32I
 
 #endif //__CORE_HPP__

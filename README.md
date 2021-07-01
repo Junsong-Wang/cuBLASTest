@@ -1,5 +1,7 @@
 # cuBLASTest
 
+I also open a topic in Nvidia Forum to discuss this issue: https://forums.developer.nvidia.com/t/cublas-gemm-int8-is-much-slower-than-fp16-in-t4/182321
+
 ## Build:
 ```
   mkdir build

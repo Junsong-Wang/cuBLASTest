@@ -20,7 +20,7 @@ int main()
   int N = 768*1024;
   int K = 128;
 
-  unsigned int iterations = 16;
+  unsigned int iterations = 4;
 
   cublasHandle_t handle;
   cublasCreate(&handle);
