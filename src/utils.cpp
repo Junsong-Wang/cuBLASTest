@@ -49,3 +49,27 @@ void print_gpu_half_data(__half* data, size_t pitch, int rows, int cols)
 	free(host_fp16);
 	free(host);
 }
+
+void print_gpu_float_data(float* data, size_t pitch, int rows, int cols)
+{
+	float* host  = (float*) malloc(rows * cols * sizeof(float));
+	cudaMemcpy2D(host,  cols * sizeof(float), data,  pitch,  cols * sizeof(float), rows, cudaMemcpyDeviceToHost);
+
+	for(int idx = 0; idx < rows * cols; idx ++){
+			std::cout << host[idx] << ", ";
+	}
+	std::cout << std::endl;
+	free(host);
+}
+
+void print_gpu_int_data(int* data, size_t pitch, int rows, int cols)
+{
+	int* host  = (int*) malloc(rows * cols * sizeof(int));
+	cudaMemcpy2D(host,  cols * sizeof(int), data,  pitch,  cols * sizeof(int), rows, cudaMemcpyDeviceToHost);
+
+	for(int idx = 0; idx < rows * cols; idx ++){
+			std::cout << host[idx] << ", ";
+	}
+	std::cout << std::endl;
+	free(host);
+}

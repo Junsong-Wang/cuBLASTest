@@ -3,7 +3,7 @@
 void int8_test(cublasHandle_t& handle, float* A, float* B, int M, int N, int K, unsigned int iterations)
 {
 #ifndef USING_CUDA_R_32I
-  const float alf_float = -2.0;
+  const float alf_float = 1.0;
   const float bet_float = 0.0;
   const float *alpha_float = &alf_float;
   const float *beta_float = &bet_float;
@@ -44,7 +44,7 @@ void int8_test(cublasHandle_t& handle, float* A, float* B, int M, int N, int K, 
   struct timeval start, end;
   gettimeofday(&start, NULL);
   for(unsigned int i = 0; i < iterations; i++){
-    
+
 #ifndef USING_CUDA_R_32I
     cublasGemmEx(handle, CUBLAS_OP_N, CUBLAS_OP_T, M, N, K, alpha_float,
                  A_ptr, CUDA_R_8I, lda, B_ptr, CUDA_R_8I, ldb, beta_float,
@@ -55,8 +55,9 @@ void int8_test(cublasHandle_t& handle, float* A, float* B, int M, int N, int K, 
                  C_ptr, CUDA_R_32I, ldc, CUDA_R_32I, CUBLAS_GEMM_DEFAULT);
 #endif
     cudaMemcpy2D(C_host,  M  * sizeof(float), C_ptr,  C_pitch,  M * sizeof(float), N, cudaMemcpyDeviceToHost);
-
   }
+  //print_gpu_int_data((int*)C_ptr, C_pitch, N,  M);
+  //print_gpu_float_data((float*)C_ptr, C_pitch, N,  M);
   gettimeofday(&end, NULL );
   double time_cost =  ( end.tv_sec - start.tv_sec ) + (end.tv_usec - start.tv_usec)/1000000.0;
   std::cout << "INT8, total Time (timeofday) in "<< iterations <<" interations is " << time_cost << "s." << std::endl;
@@ -72,7 +73,7 @@ void int8_test(cublasHandle_t& handle, float* A, float* B, int M, int N, int K, 
 
 void fp16_test(cublasHandle_t& handle, float* A, float* B, int M, int N, int K, unsigned int iterations)
 {
-  const __half alf_half = __float2half(-2.0);
+  const __half alf_half = __float2half(1.0);
   const __half bet_half = __float2half(0.0);
   const __half *alpha_half = &alf_half;
   const __half *beta_half = &bet_half;

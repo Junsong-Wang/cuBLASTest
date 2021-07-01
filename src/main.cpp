@@ -20,7 +20,7 @@ int main()
   int N = 768*1024;
   int K = 128;
 
-  unsigned int iterations = 4;
+  unsigned int iterations = 16;
 
   cublasHandle_t handle;
   cublasCreate(&handle);
@@ -37,7 +37,6 @@ int main()
   fp16_test(handle, A, B, M, N, K, iterations);
   printf("===== start to test GEMMEx(INT8), M=%d, N=%d, K=%d, test iterations:%d =====\n", M, N, K, iterations);
   int8_test(handle, A, B, M, N, K, iterations);
-  //fp16_test(handle, M, N, K, iterations);
 
   return 0;
 }

@@ -19,8 +19,13 @@ void array_float2half(float* array_float, __half* array_half, int size);
 
 void array_half2float(__half* array_half, float* array_float, int size);
 
+void array_float2int8(float* array_float, unsigned char* array_int8, int size, float scale);
+
 void print_gpu_half_data(__half* data, size_t pitch, int rows, int cols);
 
-void array_float2int8(float* array_float, unsigned char* array_int8, int size, float scale);
+void print_gpu_int_data(int* data, size_t pitch, int rows, int cols);
+
+void print_gpu_float_data(float* data, size_t pitch, int rows, int cols);
+
 
 #endif //__UTILS_HPP__
